@@ -3,6 +3,7 @@ import turtle
 
 def main():
     draw_board()
+    input()
 
 
 def draw_board():
@@ -21,6 +22,16 @@ def draw_board():
         drawer.goto(-100 + 200 * i, 300)
         drawer.pendown()
         drawer.forward(600)
+
+    # Add numbers to the top corner of each square.
+    num = 1
+    for i in range(3):
+        for j in range(3):
+            drawer.penup()
+            drawer.goto(-290 + j * 200, 280 - i * 200)
+            drawer.pendown()
+            drawer.write(num, font = ("Arial", 12))
+            num += 1
 
     # Update the screen with the new changes
     screen.update()
