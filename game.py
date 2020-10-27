@@ -1,4 +1,5 @@
 import turtle
+import math
 
 
 def main():
@@ -30,8 +31,42 @@ def draw_board():
             drawer.penup()
             drawer.goto(-290 + j * 200, 280 - i * 200)
             drawer.pendown()
-            drawer.write(num, font = ("Arial", 12))
+            drawer.write(num, font=("Arial", 12, "normal"))
             num += 1
+
+    # Update the screen with the new changes
+    screen.update()
+
+
+def draw_x(x, y):
+    # Move to the correct spot
+    drawer.penup()
+    drawer.goto(x, y)
+    drawer.pendown()
+    drawer.setheading(60)
+
+    # Draw the lines of the draw
+    for i in range(2):
+        drawer.forward(75)
+        drawer.backward(150)
+        drawer.forward(75)
+        drawer.left(60)
+
+    # Update the screen with the new changes
+    screen.update()
+
+
+def draw_o(x, y):
+    # Move to the correct spot
+    drawer.penup()
+    drawer.goto(x, y + 75)
+    drawer.pendown()
+    drawer.setheading(0)
+
+    # Draw a circle with the correct size
+    for i in range(180):
+        drawer.forward((150 * math.pi) / 180)
+        drawer.right(2)
 
     # Update the screen with the new changes
     screen.update()
